@@ -39,6 +39,8 @@ La API cuenta con los siguientes endpoints documentados con Swagger `/doc/swagge
 Se ha utilizado Spring Security para proteger mediante autentificación los endpoints de gestión de hoteles, vuelos y 
 reservas y las consultas de la lista de reservas para que sean unicamente accesibles para los 
 usuarios autenticados.
+
+Credenciales Spring Security -> Usuario: **user** Contraseña: **1234**
 ## Tests
 Se han realizado un par de tests con JUnit para comprobar el correcto funcionamiento de 
 los endpoints de consulta de hoteles y vuelos respectivamente.
