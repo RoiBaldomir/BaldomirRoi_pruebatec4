@@ -79,7 +79,7 @@ public class FlightService implements IFlightService {
     }
 
     @Override
-    public ResponseEntity<?> addFlight(FlightDTO flightDTO) {
+    public ResponseEntity<String> addFlight(FlightDTO flightDTO) {
 
         Flight newFlight = new Flight();
 
@@ -156,7 +156,7 @@ public class FlightService implements IFlightService {
     }
 
     @Override
-    public ResponseEntity<?> deleteFlight(long id) {
+    public ResponseEntity<String> deleteFlight(long id) {
 
         // Se busca el vuelo correspondiente a la id en la base de datos
         Flight flight = repository.findById(id).orElse(null);

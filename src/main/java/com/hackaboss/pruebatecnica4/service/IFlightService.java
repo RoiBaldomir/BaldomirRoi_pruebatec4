@@ -8,7 +8,7 @@ public interface IFlightService {
    ResponseEntity<?> getFlights();
    ResponseEntity<?> getFlight(long id);
    ResponseEntity<?> getFlights(String dateFrom, String dateTo, String origin, String destination);
-   ResponseEntity<?> addFlight(FlightDTO flightDTO);
+   ResponseEntity<String> addFlight(FlightDTO flightDTO);
    ResponseEntity<?> editFlight(long id,
                      String flightNumber,
                      String origin,
@@ -16,5 +16,5 @@ public interface IFlightService {
                      String seatType,
                      double flightPrice,
                      String outwardDate);
-   ResponseEntity<?> deleteFlight(long id);
+   ResponseEntity<String> deleteFlight(long id);
 }

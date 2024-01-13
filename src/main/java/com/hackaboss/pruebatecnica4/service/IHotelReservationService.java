@@ -9,6 +9,7 @@ public interface IHotelReservationService {
 
     ResponseEntity<?> addHotelReservation(HotelReservationDTO hotelReservationDTO);
     ResponseEntity<?> getHotelReservations();
+    ResponseEntity<?> getHotelReservation(long id);
     ResponseEntity<?> editHotelReservation(long id,
                                           String dateFrom,
                                           String dateTo,
@@ -18,5 +19,5 @@ public interface IHotelReservationService {
                                           int peopleQ,
                                           String roomType,
                                           double totalPrice);
-    ResponseEntity<?> deleteHotelReservation(long id);
+    ResponseEntity<String> deleteHotelReservation(long id);
 }

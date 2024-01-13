@@ -40,6 +40,17 @@ public class FlightReservationController {
 
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "La operación se ejecutó correctamente"),
+            @ApiResponse(responseCode = "404", description = "No se encontró la reserva"),
+            @ApiResponse(responseCode = "500", description = "Error del servidor")
+    })
+    @GetMapping("/reservation/{id}")
+    public ResponseEntity<?> getFlightReservation(@PathVariable long id) {
+
+        return service.getFlightReservation(id);
+    }
+
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "La operación se ejecutó correctamente"),
             @ApiResponse(responseCode = "404", description = "No se encontró la reserva que intenta editar"),
             @ApiResponse(responseCode = "500", description = "Error del servidor")
     })
@@ -63,7 +74,7 @@ public class FlightReservationController {
             @ApiResponse(responseCode = "500", description = "Error del servidor")
     })
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> deleteFlightReservation(@PathVariable long id) {
+    public ResponseEntity<String> deleteFlightReservation(@PathVariable long id) {
 
         return service.deleteFlightReservation(id);
     }

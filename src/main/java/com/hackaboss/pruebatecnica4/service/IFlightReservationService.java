@@ -10,6 +10,7 @@ public interface IFlightReservationService {
 
     ResponseEntity<?> addFlightReservation(FlightReservationDTO flightReservationDTO);
     ResponseEntity<?> getFlightReservations();
+    ResponseEntity<?> getFlightReservation(long id);
     ResponseEntity<?> editFlightReservation(long id,
                                             String outwardDate,
                                             String origin,
@@ -19,5 +20,5 @@ public interface IFlightReservationService {
                                             String seatType,
                                             String flightBooker,
                                             double totalPrice);
-    ResponseEntity<?> deleteFlightReservation(long id);
+    ResponseEntity<String> deleteFlightReservation(long id);
 }

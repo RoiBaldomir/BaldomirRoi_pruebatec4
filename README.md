@@ -25,10 +25,12 @@ La API cuenta con los siguientes endpoints documentados con Swagger `/doc/swagge
 3. Reservas
 
     - Consultar lista de reservas de hoteles `/agency/hotel-booking`
+    - Consultar reserva de hotel por id `/agency/hotel-booking/reservation/{id}`
     - Crear reserva de hotel `/agency/hotel-booking/new`
     - Editar reserva de hotel `/agency/hotel-booking/edit/{id}`
     - Eliminar reserva de hotel `/agency/hotel-booking/delete/{id}`
     - Consultar lista de reservas de vuelos `/agency/flight-booking`
+    - Consultar reserva de vuelo por id `/agency/flight-booking/reservation/{id}`
     - Crear reserva de vuelo `/agency/flight-booking/new`
     - Editar reserva de vuelo `/agency/flight-booking/edit/{id}`
     - Eliminar reserva de vuelo `/agency/flight-booking/delete/{id}`

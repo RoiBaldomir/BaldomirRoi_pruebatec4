@@ -116,6 +116,21 @@ public class FlightReservationService implements IFlightReservationService {
     }
 
     @Override
+    public ResponseEntity<?> getFlightReservation(long id) {
+
+        FlightReservation flightReservation = reservationRepository.findById(id).orElse(null);
+
+        // Si la reserva es nula se devuelve el status code correspondiente
+        if (flightReservation == null) {
+
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body("(404) No se ha encontrado una reserva con la id recibida.");
+        }
+
+        return ResponseEntity.status(HttpStatus.OK).body(reservationRepository.findById(id));
+    }
+
+    @Override
     public ResponseEntity<?> editFlightReservation(long id,
                                                    String outwardDate,
                                                    String origin,
@@ -157,7 +172,7 @@ public class FlightReservationService implements IFlightReservationService {
     }
 
     @Override
-    public ResponseEntity<?> deleteFlightReservation(long id) {
+    public ResponseEntity<String> deleteFlightReservation(long id) {
 
         // Se busca la reserva correspondiente a la id en la base de datos
         FlightReservation flightReservation = reservationRepository.findById(id).orElse(null);

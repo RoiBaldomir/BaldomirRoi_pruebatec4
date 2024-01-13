@@ -57,7 +57,7 @@ public class FlightController {
             @ApiResponse(responseCode = "500", description = "Error del servidor")
     })
     @PostMapping("/new")
-    public ResponseEntity<?> addFlight(@RequestBody FlightDTO flightDTO) {
+    public ResponseEntity<String> addFlight(@RequestBody FlightDTO flightDTO) {
 
         return service.addFlight(flightDTO);
     }
@@ -86,7 +86,7 @@ public class FlightController {
             @ApiResponse(responseCode = "500", description = "Error del servidor")
     })
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> deleteFlight(@PathVariable long id) {
+    public ResponseEntity<String> deleteFlight(@PathVariable long id) {
 
        return service.deleteFlight(id);
     }

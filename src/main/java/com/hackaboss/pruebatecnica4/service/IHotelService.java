@@ -10,7 +10,7 @@ public interface IHotelService {
     ResponseEntity<?> getHotels();
     ResponseEntity<?> getHotels(String dateFrom, String dateTo, String place);
     ResponseEntity<?> getHotel(long id);
-    ResponseEntity<?> addHotel(HotelDTO hotelDTO);
+    ResponseEntity<String> addHotel(HotelDTO hotelDTO);
     ResponseEntity<?> editHotel(long id,
                     String hotelCode,
                     String hotelName,
@@ -20,5 +20,5 @@ public interface IHotelService {
                     String dateTo,
                     String dateFrom,
                     boolean isBooked);
-    ResponseEntity<?> deleteHotel(long id);
+    ResponseEntity<String> deleteHotel(long id);
 }

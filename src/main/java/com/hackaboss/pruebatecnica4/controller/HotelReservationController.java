@@ -40,6 +40,17 @@ public class HotelReservationController {
 
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "La operación se ejecutó correctamente"),
+            @ApiResponse(responseCode = "404", description = "No se encontró la reserva"),
+            @ApiResponse(responseCode = "500", description = "Error del servidor")
+    })
+    @GetMapping("/reservation/{id}")
+    public ResponseEntity<?> getHotelReservation(@PathVariable long id) {
+
+        return service.getHotelReservation(id);
+    }
+
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "La operación se ejecutó correctamente"),
             @ApiResponse(responseCode = "404", description = "No se encontró la reserva que intenta editar"),
             @ApiResponse(responseCode = "500", description = "Error del servidor")
     })
@@ -63,7 +74,7 @@ public class HotelReservationController {
             @ApiResponse(responseCode = "500", description = "Error del servidor")
     })
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> deleteHotelReservations(@PathVariable long id) {
+    public ResponseEntity<String> deleteHotelReservations(@PathVariable long id) {
 
         return service.deleteHotelReservation(id);
     }

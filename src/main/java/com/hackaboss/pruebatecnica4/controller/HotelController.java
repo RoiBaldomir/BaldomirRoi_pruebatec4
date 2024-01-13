@@ -56,7 +56,7 @@ public class HotelController {
             @ApiResponse(responseCode = "500", description = "Error del servidor")
     })
     @PostMapping("/new")
-    public ResponseEntity<?> addHotel(@RequestBody HotelDTO hotelDTO) {
+    public ResponseEntity<String> addHotel(@RequestBody HotelDTO hotelDTO) {
 
         return service.addHotel(hotelDTO);
     }
@@ -87,7 +87,7 @@ public class HotelController {
             @ApiResponse(responseCode = "500", description = "Error del servidor")
     })
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> deleteHotel(@PathVariable long id) {
+    public ResponseEntity<String> deleteHotel(@PathVariable long id) {
 
         return service.deleteHotel(id);
     }

@@ -128,6 +128,20 @@ public class HotelReservationService implements IHotelReservationService{
     }
 
     @Override
+    public ResponseEntity<?> getHotelReservation(long id) {
+
+        HotelReservation hotelReservation = reservationRepository.findById(id).orElse(null);
+
+        // Si la reserva es nula se devuelve el status code correspondiente
+        if (hotelReservation == null) {
+
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("(404) No se ha encontrado una reserva con la id recibida.");
+        }
+
+        return ResponseEntity.status(HttpStatus.OK).body(reservationRepository.findById(id));
+    }
+
+    @Override
     public ResponseEntity<?> editHotelReservation(long id,
                                                  String dateFrom,
                                                  String dateTo,
@@ -194,7 +208,7 @@ public class HotelReservationService implements IHotelReservationService{
     }
 
     @Override
-    public ResponseEntity<?> deleteHotelReservation(long id) {
+    public ResponseEntity<String> deleteHotelReservation(long id) {
 
         // Se busca la reserva correspondiente a la id en la base de datos
         HotelReservation hotelReservation = reservationRepository.findById(id).orElse(null);

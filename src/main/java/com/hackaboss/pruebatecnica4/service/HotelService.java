@@ -83,7 +83,7 @@ public class HotelService implements IHotelService{
     }
 
     @Override
-    public ResponseEntity<?> addHotel(HotelDTO hotelDTO) {
+    public ResponseEntity<String> addHotel(HotelDTO hotelDTO) {
 
         Hotel newHotel = new Hotel();
         Room room = new Room();
@@ -170,7 +170,7 @@ public class HotelService implements IHotelService{
         }
 
     @Override
-    public ResponseEntity<?> deleteHotel(long id) {
+    public ResponseEntity<String> deleteHotel(long id) {
 
         // Se busca el hotel correspondiente a la id en la base de datos
         Hotel hotel = hotelRepository.findById(id).orElse(null);
